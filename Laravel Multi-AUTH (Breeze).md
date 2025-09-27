@@ -106,7 +106,10 @@ _______
 
 ## Step-5:
 
+
 - Middleware রেজিস্ট্রেশনঃ
+
+> For Laravel - 10.x:
 
 `kernel.php`:
 ```php
@@ -114,6 +117,30 @@ protected $middlewareAliases = [
         // Other Middlewares...........
         'role' => \App\Http\Middleware\RoleMiddleware::class
     ];
+```
+
+> For Laravel - 11.x:
+
+`bootstrap/app.php`:
+```php
+use App\Http\Middleware\RoleMiddleware;
+use Illuminate\Foundation\Configuration\Middleware;
+
+return Application::configure(basePath: dirname(__DIR__))
+    ->withRouting(
+        web: __DIR__.'/../routes/web.php',
+        commands: __DIR__.'/../routes/console.php',
+        health: '/up',
+    )
+    ->withMiddleware(function (Middleware $middleware) {
+        // এখানে alias রেজিস্টার করতে হবে
+        $middleware->alias([
+            'role' => RoleMiddleware::class,
+        ]);
+    })
+    ->withExceptions(function (Exceptions $exceptions) {
+        //
+    })->create();
 ```
 ______
 
