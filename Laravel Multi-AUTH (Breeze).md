@@ -111,7 +111,7 @@ _______
 
 > For Laravel - 10.x:
 
-`kernel.php`:
+`app/Http/Kernel.php`:
 ```php
 protected $middlewareAliases = [
         // Other Middlewares...........
