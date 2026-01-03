@@ -29,7 +29,7 @@ _______
 
 - `AuthenticatedSessionController.php` তে নিচের দেয়া কোডটি লিখতে হবেঃ
 
-1. পদ্ধতি-১ঃ যদি Remember Token use করতে চাইঃ 
+1. পদ্ধতি-১: যদি Remember Token use করতে চাইঃ 
 ```php
 public function store(Request $request): RedirectResponse
     {
@@ -60,7 +60,7 @@ public function store(Request $request): RedirectResponse
 ```
 
 
-2. পদ্ধতি-১ঃ  **(Simple Way)** যদি Remember Token use না করলেও হয়ঃ 
+2. পদ্ধতি-২:   **(Simple Way)**
    
 ```php
 public function store(LoginRequest $request): RedirectResponse
